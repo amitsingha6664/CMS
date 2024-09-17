@@ -1,0 +1,12 @@
+.background-section{
+    background-image: url('../img/login_background.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.card{
+    /* background-color: rgba(129, 18, 233, 0.6); */
+    background-color: black;
+}

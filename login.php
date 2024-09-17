@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+  <?php
+
+    $phone_number = '01779178486';
+    $pass = '12345678';
+    $error = "";
+    $success = "";
+    
+    if (isset($_POST['submit'])) {
+        $phone = $_POST['phone'];
+        $password = $_POST['password'];
+    
+        if(empty($phone)) {
+            $error = 'Please fill in your phone number.';
+        }
+        elseif (empty($password)) {
+            $error = 'Please fill in your password.';
+        }
+        elseif (strlen($password) < 8 || strlen($password) > 20) {
+            $error = 'Password must be 8-20 characters long.';
+        }
+        elseif ($phone === $phone_number && $password === $pass) {
+            $success = "Login successful!";
+        }
+        else {
+            $error = 'Incorrect email or password.';
+        }
+    }
+    ?>
+
+    <section class="vh-100 background-section">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card shadow-2-strong pt-0" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+      
+                <form method="POST" action="">
+                  <h3 class="mb-4 text-warning fw-bold">LOG IN</h3>
+
+                  <?php if ($error): ?>
+                    <div class="alert alert-danger">
+                        <?php echo $error; ?>
+                    </div>
+                  <?php elseif ($success): ?>
+                    <div class="alert alert-success">
+                        <?php echo $success; ?>
+                    </div>
+                  <?php endif; ?>
+      
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label text-warning" for="typeTextX-2">Email or Phone</label>
+                    <input type="text" name="phone" id="typeTextX-2" class="form-control form-control-lg" value="<?php if (isset($phone)) { echo $phone; } ?>" placeholder="Enter Your Email or Phone"/>
+                  </div>
+      
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label text-warning" for="typePasswordX-2">Password</label>
+                    <input type="password" name="password" id="typePasswordX-2" class="form-control form-control-lg" value="<?php if (isset($password)) { echo $password; } ?>" placeholder="Enter Your Password"/>
+                  </div>
+      
+                  <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-warning btn-lg btn-block" type="submit" name="submit">Login</button>
+      
+                  <hr class="my-4 text-warning">
+
+                  <div class="second d-flex justify-content-between text-center mt-3 pt-1">
+                    <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                    <p class="mb-0 text-warning">Create new account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a></p>
+                  </div>
+      
+                  <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-warning btn-lg btn-block" type="submit"> <i class="fa-brands fa-google"></i> Sign in with google</button>
+                </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <script src="Assets/js/bootstrap.min.js"></script>
+</body>
+</html>
