@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 <body>
@@ -58,27 +60,34 @@
                   <?php endif; ?>
       
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label text-warning" for="typeTextX-2">Email or Phone</label>
+                    <label class="form-label text-warning fs-5" for="typeTextX-2">Email or Phone</label>
                     <input type="text" name="phone" id="typeTextX-2" class="form-control form-control-lg" value="<?php if (isset($phone)) { echo $phone; } ?>" placeholder="Enter Your Email or Phone"/>
                   </div>
       
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label text-warning" for="typePasswordX-2">Password</label>
+                    <label class="form-label text-warning fs-5" for="typePasswordX-2">Password</label>
                     <input type="password" name="password" id="typePasswordX-2" class="form-control form-control-lg" value="<?php if (isset($password)) { echo $password; } ?>" placeholder="Enter Your Password"/>
+                  </div>
+
+                  <div class="d-flex justify-content-end">
+                    <p class="small mb-1 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
                   </div>
       
                   <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-warning btn-lg btn-block" type="submit" name="submit">Login</button>
       
                   <hr class="my-4 text-warning">
 
-                  <div class="second d-flex justify-content-between text-center mt-3 pt-1">
-                    <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                  <div class="second d-flex justify-content-center text-center mt-1 pt-1">
                     <p class="mb-0 text-warning">Create new account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a></p>
                   </div>
-      
-                  <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-warning btn-lg btn-block" type="submit"> <i class="fa-brands fa-google"></i> Sign in with google</button>
-                </form>
 
+                  <p class="text-warning fs-4 m-0 p-0">or</p>
+
+                  <div class="social-icon">
+                    <a href="!#"><i class="fa-brands fa-google"></i></a>
+                    <a href="!#"><i class="fa-brands fa-facebook"></i></a>
+                  </div>
+                  
                 </div>
               </div>
             </div>
